@@ -1,6 +1,6 @@
 package com.library.dao;
 
-import com.library.model.Library;
+import com.library.domain.Library;
 import org.springframework.stereotype.Repository;
 
 /**

@@ -1,4 +1,4 @@
-package com.library.model;
+package com.library.domain;
 
 /**
  * TODO: Add class description
