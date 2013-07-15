@@ -1,12 +1,17 @@
 package com.library.service;
 
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 /**
  * TODO: Add class description
  *
  * @author Viktor_Khvostov
  */
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration("/test-config.xml")
 public class LibraryServiceTest {
     @Test
     public void testGetLibrary() throws Exception {
