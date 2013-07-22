@@ -14,17 +14,14 @@ import javax.persistence.Table;
 @Table(name="Comment")
 public class Comment {
 
+    private Long commentId;
+    private Long bookId;
     private String comment;
     private Rating rating;
-    private int id;
-    private int bookId;
 
-    public Comment(String comment, Rating rating, int id, int bookId) {
-        this.comment = comment;
-        this.rating = rating;
-        this.id = id;
-        this.bookId = bookId;
+    public Comment() {
     }
+
     @Column(name="comment")
     public String getComment() {
         return comment;
@@ -41,20 +38,20 @@ public class Comment {
     public void setRating(Rating rating) {
         this.rating = rating;
     }
-    @Column(name="id")
-    public int getId(){
-        return id;
+    @Column(name="commentId")
+    public Long getCommentId(){
+        return commentId;
     }
 
-    public void setId(int id){
-        this.id = id;
+    public void setCommentId(Long commentId){
+        this.commentId = commentId;
     }
     @Column(name="bookId")
-    public int getBookId(){
+    public Long getBookId(){
         return bookId;
     }
 
-    public void setBookId(int bookId){
+    public void setBookId(Long bookId){
         this.bookId = bookId;
     }
 }

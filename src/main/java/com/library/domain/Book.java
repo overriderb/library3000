@@ -18,12 +18,12 @@ import java.util.List;
 @Table(name="Book")
 public class Book {
 
-    final private String title;
-    final private String author;
-    final private int pageNumbers;
-    final private String description;
-    private int id;
-    private int libId;
+    private Long bookId;
+    private Long libraryId;
+    private String title;
+    private String author;
+    private int pageNumbers;
+    private String description;
 
     private List<Comment> comments;
 
@@ -44,9 +44,17 @@ public class Book {
         return title;
     }
 
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
     @Column(name="author")
     public String getAuthor() {
         return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
     }
 
     @Column(name="pageNumbers")
@@ -54,24 +62,44 @@ public class Book {
         return pageNumbers;
     }
 
+    public void setPageNumbers(int pageNumbers) {
+        this.pageNumbers = pageNumbers;
+    }
+
     @Column(name="description")
     public String getDescription() {
         return description;
     }
 
-    @Column(name="id")
-    public int getId(){
-        return id;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    @Column(name="libId")
-    public int getLibId(){
-        return libId;
+    @Column(name="bookId")
+    public Long getBookId(){
+        return bookId;
+    }
+
+    public void setBookId(Long bookId) {
+        this.bookId = bookId;
+    }
+
+    @Column(name="libraryId")
+    public Long getLibraryId(){
+        return libraryId;
+    }
+
+    public void setLibraryId(Long libraryId) {
+        this.libraryId = libraryId;
     }
 
     @OneToMany
-    @JoinTable(name = "id")
+    @JoinTable(name = "bookId")
     public List<Comment> getComments() {
         return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
     }
 }

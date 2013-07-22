@@ -18,9 +18,10 @@ import java.util.List;
 @Table(name="Library")
 public class Library {
 
-    private List<Book> books;
+    private Long libraryId;
     private String name;
-    private int id;
+
+    private List<Book> books;
 
     public Library() {
         this.books = new ArrayList<Book>();
@@ -39,18 +40,18 @@ public class Library {
     }
 
     @OneToMany
-    @JoinTable(name = "id")
+    @JoinTable(name = "libraryId")
     public List<Book> getBooks() {
         return books;
     }
 
-    public void setId(int id){
-        this.id = id;
+    public void setLibraryId(Long libraryId){
+        this.libraryId = libraryId;
     }
 
-    @Column(name="id")
-    public int getId(){
-        return id;
+    @Column(name="libraryId")
+    public Long getLibraryId(){
+        return libraryId;
     }
 
     public void setName(String name){
