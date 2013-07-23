@@ -7,12 +7,19 @@ package com.library.domain;
  */
 public enum Rating {
 
-    ONE_STAR,
-    TWO_STAR,
-    THREE_STAR,
-    FOUR_STAR,
-    FIVE_STAR;
+    ONE_STAR("*"),
+    TWO_STAR("**"),
+    THREE_STAR("***"),
+    FOUR_STAR("****"),
+    FIVE_STAR("*****");
 
-    private Rating() {
+    private final String rating;
+
+    private Rating(String rating) {
+        this.rating = rating;
+    }
+
+    public String getRating() {
+        return rating;
     }
 }
