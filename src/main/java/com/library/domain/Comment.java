@@ -2,8 +2,7 @@ package com.library.domain;
 
 import org.hibernate.annotations.Entity;
 
-import javax.persistence.Column;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * TODO: Add class description
@@ -30,7 +29,8 @@ public class Comment {
     public void setComment(String comment) {
         this.comment = comment;
     }
-    @Column(name="rating")
+    @ManyToOne
+    @JoinTable(name = "ratingId")
     public Rating getRating() {
         return rating;
     }

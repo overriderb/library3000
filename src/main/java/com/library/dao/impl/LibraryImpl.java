@@ -1,6 +1,4 @@
-package com.library.dao;
-
-import com.library.domain.Library;
+package com.library.dao.impl;
 
 /**
  * Created with IntelliJ IDEA.
@@ -9,7 +7,5 @@ import com.library.domain.Library;
  * Time: 14:03
  * To change this template use File | Settings | File Templates.
  */
-public interface LibraryDao {
-
-    public void createLibrary(Library library);
+public class LibraryImpl {
 }
