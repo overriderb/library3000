@@ -19,7 +19,7 @@ public class LibraryService {
     public LibraryService() {
     }
 
-    public Library getLibrary() {
+    /*public Library getLibrary() {
         return libraryDao.readLibrary();
-    }
+    }*/
 }

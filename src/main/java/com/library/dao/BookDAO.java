@@ -1,5 +1,8 @@
 package com.library.dao;
 
+import com.library.domain.Book;
+import com.library.domain.Library;
+
 /**
  * Created with IntelliJ IDEA.
  * User: user
@@ -8,4 +11,5 @@ package com.library.dao;
  * To change this template use File | Settings | File Templates.
  */
 public interface BookDAO {
+    public void addBook(Book book);
 }

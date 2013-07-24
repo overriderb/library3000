@@ -11,5 +11,5 @@ import com.library.domain.Library;
  */
 public interface LibraryDao {
 
-    public void createLibrary(Library library);
+    public void addLibrary(Library library);
 }

@@ -1,5 +1,8 @@
 package com.library.dao;
 
+
+import com.library.domain.Comment;
+
 /**
  * Created with IntelliJ IDEA.
  * User: user
@@ -8,4 +11,5 @@ package com.library.dao;
  * To change this template use File | Settings | File Templates.
  */
 public interface CommentDAO {
+    public void addComment(Comment comment);
 }

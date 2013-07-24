@@ -1,11 +1,15 @@
 package com.library.domain;
 
-import org.hibernate.annotations.Entity;
+
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.Column;
-import javax.persistence.JoinTable;
-import javax.persistence.OneToMany;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.GeneratedValue;
+
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,19 +29,24 @@ public class Book {
     private int pageNumbers;
     private String description;
 
-    private List<Comment> comments;
+    /*private List<Comment> comments;*/
 
-    public Book(final String title, final String author, final int pageNumbers, final String description) {
+    public Book(){
+
+    }
+
+    public Book(final String title, final String author, final int pageNumbers, final String description, Long libraryId) {
         this.title = title;
         this.author = author;
         this.pageNumbers = pageNumbers;
         this.description = description;
-        this.comments = new ArrayList<Comment>();
+        this.libraryId = libraryId;
+        /*this.comments = new ArrayList<Comment>();*/
     }
 
-    public void addComment(Comment comment) {
+    /*public void addComment(Comment comment) {
         comments.add(comment);
-    }
+    }*/
 
     @Column(name="title")
     public String getTitle() {
@@ -74,7 +83,9 @@ public class Book {
     public void setDescription(String description) {
         this.description = description;
     }
-
+    @Id
+/*    @GeneratedValue(generator="increment")
+    @GenericGenerator(name="increment", strategy = "increment")*/
     @Column(name="bookId")
     public Long getBookId(){
         return bookId;
@@ -93,13 +104,13 @@ public class Book {
         this.libraryId = libraryId;
     }
 
-    @OneToMany
+    /*@OneToMany
     @JoinTable(name = "bookId")
     public List<Comment> getComments() {
         return comments;
-    }
+    }*/
 
-    public void setComments(List<Comment> comments) {
+   /* public void setComments(List<Comment> comments) {
         this.comments = comments;
-    }
+    }*/
 }
