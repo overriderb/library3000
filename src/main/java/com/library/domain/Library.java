@@ -1,12 +1,8 @@
 package com.library.domain;
 
 import org.hibernate.annotations.GenericGenerator;
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import javax.persistence.Column;
-import javax.persistence.Id;
-import javax.persistence.GeneratedValue;
 
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,9 +18,9 @@ public class Library {
     private Long libraryId;
     private String name;
 
-    /*private List<Book> books;*/
+    private List<Book> books;
 
-   /* public Library() {
+    public Library() {
         this.books = new ArrayList<Book>();
     }
 
@@ -40,11 +36,11 @@ public class Library {
         this.books = books;
     }
 
-    @OneToMany(targetEntity = Book.class)
-    @JoinTable(name = "libraryId")
+    @OneToMany
+    @JoinTable(name = "bookId")
     public List<Book> getBooks() {
         return books;
-    }*/
+    }
 
     public void setLibraryId(Long libraryId){
         this.libraryId = libraryId;

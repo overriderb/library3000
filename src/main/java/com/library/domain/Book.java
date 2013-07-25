@@ -1,17 +1,10 @@
 package com.library.domain;
 
 
-import org.hibernate.annotations.GenericGenerator;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.persistence.GeneratedValue;
-
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * TODO: Add class description
@@ -35,12 +28,12 @@ public class Book {
 
     }
 
-    public Book(final String title, final String author, final int pageNumbers, final String description, Long libraryId) {
+    public Book(final String title, final String author, final int pageNumbers, final String description) {
         this.title = title;
         this.author = author;
         this.pageNumbers = pageNumbers;
         this.description = description;
-        this.libraryId = libraryId;
+        /*this.libraryId = libraryId;*/
         /*this.comments = new ArrayList<Comment>();*/
     }
 
