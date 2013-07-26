@@ -1,17 +1,8 @@
 package com.library.domain;
 
-
-
-
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import javax.persistence.Column;
-import javax.persistence.Id;
-import javax.persistence.GeneratedValue;
-
-
+import javax.persistence.*;
 
 
 /**
@@ -26,14 +17,18 @@ public class Comment {
     private Long commentId;
     private Long bookId;
     private String comment;
-    //private Rating rating;
+    private Rating rating;
 
     public Comment() {
     }
 
+    public Comment(String comment){
+        this.comment = comment;
+    }
 
-    /*@ManyToOne
-    @JoinTable(name = "ratingId")
+
+    /*@OneToOne
+    @JoinTable(name = "rating")
     public Rating getRating() {
         return rating;
     }
@@ -52,11 +47,13 @@ public class Comment {
     public void setCommentId(Long commentId){
         this.commentId = commentId;
     }
+
     @Column(name="bookId")
     public Long getBookId(){
         return bookId;
     }
-
+    /*@ManyToOne
+    @JoinTable(name = "bookId")*/
     public void setBookId(Long bookId){
         this.bookId = bookId;
     }

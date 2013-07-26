@@ -36,8 +36,9 @@ public class Library {
         this.books = books;
     }
 
-    @OneToMany
-    @JoinTable(name = "bookId")
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "Book", joinColumns = @JoinColumn(name = "libraryId"),
+            inverseJoinColumns = @JoinColumn(name = "bookId"))
     public List<Book> getBooks() {
         return books;
     }

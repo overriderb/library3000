@@ -1,10 +1,11 @@
 package com.library.domain;
 
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * TODO: Add class description
@@ -22,7 +23,7 @@ public class Book {
     private int pageNumbers;
     private String description;
 
-    /*private List<Comment> comments;*/
+    private List<Comment> comments;
 
     public Book(){
 
@@ -33,13 +34,14 @@ public class Book {
         this.author = author;
         this.pageNumbers = pageNumbers;
         this.description = description;
-        /*this.libraryId = libraryId;*/
-        /*this.comments = new ArrayList<Comment>();*/
+        //this.libraryId = libraryId;
+
+        this.comments = new ArrayList<Comment>();
     }
 
-    /*public void addComment(Comment comment) {
+    public void addComment(Comment comment) {
         comments.add(comment);
-    }*/
+    }
 
     @Column(name="title")
     public String getTitle() {
@@ -77,8 +79,8 @@ public class Book {
         this.description = description;
     }
     @Id
-/*    @GeneratedValue(generator="increment")
-    @GenericGenerator(name="increment", strategy = "increment")*/
+    @GeneratedValue(generator="increment")
+    @GenericGenerator(name="increment", strategy = "increment")
     @Column(name="bookId")
     public Long getBookId(){
         return bookId;
@@ -97,13 +99,14 @@ public class Book {
         this.libraryId = libraryId;
     }
 
-    /*@OneToMany
-    @JoinTable(name = "bookId")
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "Comment", joinColumns = @JoinColumn(name = "bookId"),
+            inverseJoinColumns = @JoinColumn(name = "commentId"))
     public List<Comment> getComments() {
         return comments;
-    }*/
+    }
 
-   /* public void setComments(List<Comment> comments) {
+    public void setComments(List<Comment> comments) {
         this.comments = comments;
-    }*/
+    }
 }
