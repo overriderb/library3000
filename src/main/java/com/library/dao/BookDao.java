@@ -10,6 +10,6 @@ import com.library.domain.Library;
  * Time: 14:02
  * To change this template use File | Settings | File Templates.
  */
-public interface BookDAO {
+public interface BookDao {
     public void addBook(Book book);
 }
