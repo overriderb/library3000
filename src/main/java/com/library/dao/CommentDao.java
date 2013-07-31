@@ -10,6 +10,6 @@ import com.library.domain.Comment;
  * Time: 14:02
  * To change this template use File | Settings | File Templates.
  */
-public interface CommentDAO {
+public interface CommentDao {
     public void addComment(Comment comment);
 }
