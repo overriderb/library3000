@@ -1,9 +1,10 @@
 package com.library.dao.impl;
 
-import com.library.dao.BookDAO;
+import com.library.dao.BookDao;
 import com.library.domain.Book;
 import com.library.util.HibernateUtil;
 import org.hibernate.Session;
+import org.springframework.stereotype.Repository;
 
 /**
  * Created with IntelliJ IDEA.
@@ -12,7 +13,8 @@ import org.hibernate.Session;
  * Time: 14:05
  * To change this template use File | Settings | File Templates.
  */
-public class BookImpl implements BookDAO {
+@Repository
+public class BookImpl implements BookDao {
     @Override
     public void addBook(Book book) {
         Session session = null;

@@ -1,13 +1,12 @@
 package com.library;
 
+import com.library.dao.LibraryDao;
 import com.library.dao.impl.Factory;
 import com.library.domain.Book;
 import com.library.domain.Comment;
 import com.library.domain.Library;
 import com.library.domain.Rating;
-
-import java.util.ArrayList;
-import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * Created with IntelliJ IDEA.
@@ -17,45 +16,34 @@ import java.util.List;
  * To change this template use File | Settings | File Templates.
  */
 public class Main {
+
+    @Autowired
+    private LibraryDao libraryDao;
+
     public static void main(String args[]){
-        List<Book> bookList = new ArrayList<Book>();
-        Book book1 = new Book("UnderGround", "Teterin", 150, "about group");
-        Book book2 = new Book("Java in action", "Shild", 750, "about java");
-       // book1.setBookId(Long.valueOf("100"));
-       // book2.setBookId(Long.valueOf("101"));
-        book1.setLibraryId(Long.valueOf("101"));
-        book2.setLibraryId(Long.valueOf("101"));
-        bookList.add(book1);
-        bookList.add(book2);
+        new Main().testFromMainForAndrey();
+    }
+
+    //TODO: use for test - tests :)
+    public void testFromMainForAndrey() {
         Library lib1 = new Library();
-
         lib1.setName("myLibrary");
-        lib1.setLibraryId(Long.valueOf("101"));
-        lib1.setBooks(bookList);
 
-
-        //Factory.getInstance().getLibraryDao().addLibrary(lib1);
-
-
-
-
-
-
+        Book book1 = new Book(lib1, "UnderGround", "Teterin", 150, "about group");
+        Book book2 = new Book(lib1, "Java in action", "Shild", 750, "about java");
 
         Comment comment = new Comment("test comment");
-       // comment.setCommentId(Long.valueOf("2"));
+        comment.setBook(book1);
+        Rating fiveStar = Rating.getFiveStar();
+        fiveStar.addComment(comment);
+        comment.setRating(fiveStar);
 
         book1.addComment(comment);
-        //comment.setRating(Rating.FIVE_STAR);
-       // Factory.getInstance().getCommentDAO().addComment(comment);
 
-        //Factory.getInstance().getBookDAO().addBook(book);
-        //Factory.getInstance().getBookDAO().addBook(book1);
+        lib1.addBook(book1);
+        lib1.addBook(book2);
+
+//        libraryDao.addLibrary(lib1);
         Factory.getInstance().getLibraryDao().addLibrary(lib1);
-
-
-
-
-
     }
 }

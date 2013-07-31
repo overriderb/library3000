@@ -1,9 +1,10 @@
 package com.library.dao.impl;
 
-import com.library.dao.CommentDAO;
+import com.library.dao.CommentDao;
 import com.library.domain.Comment;
 import com.library.util.HibernateUtil;
 import org.hibernate.Session;
+import org.springframework.stereotype.Repository;
 
 /**
  * Created with IntelliJ IDEA.
@@ -12,7 +13,8 @@ import org.hibernate.Session;
  * Time: 14:05
  * To change this template use File | Settings | File Templates.
  */
-public class CommentImpl implements CommentDAO {
+@Repository
+public class CommentImpl implements CommentDao {
     @Override
     public void addComment(Comment comment) {
         Session session = null;

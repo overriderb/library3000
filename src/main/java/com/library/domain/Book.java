@@ -1,11 +1,19 @@
 package com.library.domain;
 
 
-import org.hibernate.annotations.GenericGenerator;
-
-import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * TODO: Add class description
@@ -13,37 +21,51 @@ import java.util.List;
  * @author Viktor_Khvostov
  */
 @Entity
-@Table(name="Book")
+@Table(name = "book")
 public class Book {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "bookId", unique = true, nullable = false)
     private Long bookId;
-    private Long libraryId;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "libraryId", nullable = false)
+    private Library library;
+
+    @Column(name = "title", nullable = false)
     private String title;
+
+    @Column(name = "author", nullable = false)
     private String author;
+
+    @Column(name = "pageNumbers", nullable = false)
     private int pageNumbers;
+
+    @Column(name = "description", nullable = false)
     private String description;
 
-    private List<Comment> comments;
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "book", cascade = CascadeType.ALL)
+    private Set<Comment> comments;
 
     public Book(){
 
     }
 
-    public Book(final String title, final String author, final int pageNumbers, final String description) {
+    public Book(Library library, final String title, final String author, final int pageNumbers, final String description) {
+        this.library = library;
         this.title = title;
         this.author = author;
         this.pageNumbers = pageNumbers;
         this.description = description;
-        //this.libraryId = libraryId;
 
-        this.comments = new ArrayList<Comment>();
+        this.comments = new HashSet<Comment>();
     }
 
     public void addComment(Comment comment) {
         comments.add(comment);
     }
 
-    @Column(name="title")
     public String getTitle() {
         return title;
     }
@@ -52,7 +74,6 @@ public class Book {
         this.title = title;
     }
 
-    @Column(name="author")
     public String getAuthor() {
         return author;
     }
@@ -61,7 +82,6 @@ public class Book {
         this.author = author;
     }
 
-    @Column(name="pageNumbers")
     public int getPageNumbers() {
         return pageNumbers;
     }
@@ -70,7 +90,6 @@ public class Book {
         this.pageNumbers = pageNumbers;
     }
 
-    @Column(name="description")
     public String getDescription() {
         return description;
     }
@@ -78,10 +97,7 @@ public class Book {
     public void setDescription(String description) {
         this.description = description;
     }
-    @Id
-    @GeneratedValue(generator="increment")
-    @GenericGenerator(name="increment", strategy = "increment")
-    @Column(name="bookId")
+
     public Long getBookId(){
         return bookId;
     }
@@ -90,23 +106,19 @@ public class Book {
         this.bookId = bookId;
     }
 
-    @Column(name="libraryId")
-    public Long getLibraryId(){
-        return libraryId;
+    public Library getLibrary() {
+        return library;
     }
 
-    public void setLibraryId(Long libraryId) {
-        this.libraryId = libraryId;
+    public void setLibrary(Library library) {
+        this.library = library;
     }
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "Comment", joinColumns = @JoinColumn(name = "bookId"),
-            inverseJoinColumns = @JoinColumn(name = "commentId"))
-    public List<Comment> getComments() {
+    public Set<Comment> getComments() {
         return comments;
     }
 
-    public void setComments(List<Comment> comments) {
+    public void setComments(Set<Comment> comments) {
         this.comments = comments;
     }
 }

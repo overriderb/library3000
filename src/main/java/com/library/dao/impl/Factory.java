@@ -1,7 +1,7 @@
 package com.library.dao.impl;
 
-import com.library.dao.BookDAO;
-import com.library.dao.CommentDAO;
+import com.library.dao.BookDao;
+import com.library.dao.CommentDao;
 import com.library.dao.LibraryDao;
 
 /**
@@ -13,8 +13,8 @@ import com.library.dao.LibraryDao;
  */
 public class Factory {
     private static LibraryDao libraryDao = null;
-    private static BookDAO bookDAO = null;
-    private static CommentDAO commentDAO = null;
+    private static BookDao bookDao = null;
+    private static CommentDao commentDao = null;
     private static Factory instance = null;
 
     public static synchronized Factory getInstance(){
@@ -30,17 +30,17 @@ public class Factory {
         }
         return libraryDao;
     }
-    public BookDAO getBookDAO(){
-        if (bookDAO == null){
-            bookDAO = new BookImpl();
+    public BookDao getBookDAO(){
+        if (bookDao == null){
+            bookDao = new BookImpl();
         }
-        return bookDAO;
+        return bookDao;
     }
 
-    public CommentDAO getCommentDAO(){
-        if(commentDAO == null){
-            commentDAO = new CommentImpl();
+    public CommentDao getCommentDAO(){
+        if(commentDao == null){
+            commentDao = new CommentImpl();
         }
-        return commentDAO;
+        return commentDao;
     }
 }

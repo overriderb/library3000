@@ -11,14 +11,16 @@ import org.hibernate.cfg.Configuration;
  * To change this template use File | Settings | File Templates.
  */
 public class HibernateUtil {
-    private static SessionFactory sessionFactory = null;
 
-    static {
+    private static final SessionFactory sessionFactory = buildSessionFactory();
+
+    private static SessionFactory buildSessionFactory() {
         try {
-            //creates the session factory from hibernate.cfg.xml
-            sessionFactory = new Configuration().configure().buildSessionFactory();
-        } catch (Exception e) {
-            e.printStackTrace();
+            return new Configuration().configure().buildSessionFactory();
+        }
+        catch (Throwable ex) {
+            System.err.println("Initial SessionFactory creation failed." + ex);
+            throw new ExceptionInInitializerError(ex);
         }
     }
 

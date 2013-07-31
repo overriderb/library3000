@@ -1,10 +1,16 @@
 package com.library.domain;
 
-import org.hibernate.annotations.GenericGenerator;
-
-import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * TODO: Add class description
@@ -12,19 +18,25 @@ import java.util.List;
  * @author Viktor_Khvostov
  */
 @Entity
-@Table(name="Library")
+@Table(name = "library")
 public class Library {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "libraryId", unique = true, nullable = false)
     private Long libraryId;
+
+    @Column(name = "name", nullable = false)
     private String name;
 
-    private List<Book> books;
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "library", cascade = CascadeType.ALL)
+    private Set<Book> books;
 
     public Library() {
-        this.books = new ArrayList<Book>();
+        this.books = new HashSet<Book>();
     }
 
-    public Library(List<Book> books) {
+    public Library(Set<Book> books) {
         this.books = books;
     }
 
@@ -32,14 +44,11 @@ public class Library {
         books.add(book);
     }
 
-    public void setBooks(List<Book> books) {
+    public void setBooks(Set<Book> books) {
         this.books = books;
     }
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "Book", joinColumns = @JoinColumn(name = "libraryId"),
-            inverseJoinColumns = @JoinColumn(name = "bookId"))
-    public List<Book> getBooks() {
+    public Set<Book> getBooks() {
         return books;
     }
 
@@ -47,10 +56,6 @@ public class Library {
         this.libraryId = libraryId;
     }
 
-    @Id
-    @GeneratedValue(generator="increment")
-    @GenericGenerator(name="increment", strategy = "increment")
-    @Column(name="libraryId")
     public Long getLibraryId(){
         return libraryId;
     }
@@ -59,7 +64,6 @@ public class Library {
         this.name = name;
     }
 
-    @Column(name="name")
     public String getName(){
         return name;
     }

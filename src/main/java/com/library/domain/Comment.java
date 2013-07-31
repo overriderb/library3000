@@ -1,8 +1,15 @@
 package com.library.domain;
 
-import org.hibernate.annotations.GenericGenerator;
-
-import javax.persistence.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 
 /**
@@ -11,12 +18,23 @@ import javax.persistence.*;
  * @author Viktor_Khvostov
  */
 @Entity
-@Table(name="Comment")
+@Table(name = "Comment")
 public class Comment {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "commentId", unique = true, nullable = false)
     private Long commentId;
-    private Long bookId;
+
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "bookId", nullable = false)
+    private Book book;
+
+    @Column(name = "comment", nullable = false)
     private String comment;
+
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "ratingId", nullable = false)
     private Rating rating;
 
     public Comment() {
@@ -26,20 +44,6 @@ public class Comment {
         this.comment = comment;
     }
 
-
-    /*@OneToOne
-    @JoinTable(name = "rating")
-    public Rating getRating() {
-        return rating;
-    }
-
-    public void setRating(Rating rating) {
-        this.rating = rating;
-    }*/
-    @Id
-    @GeneratedValue(generator="increment")
-    @GenericGenerator(name="increment", strategy = "increment")
-    @Column(name="commentId")
     public Long getCommentId(){
         return commentId;
     }
@@ -48,21 +52,27 @@ public class Comment {
         this.commentId = commentId;
     }
 
-    @Column(name="bookId")
-    public Long getBookId(){
-        return bookId;
+    public Book getBook(){
+        return book;
     }
-    /*@ManyToOne
-    @JoinTable(name = "bookId")*/
-    public void setBookId(Long bookId){
-        this.bookId = bookId;
+
+    public void setBook(Book book){
+        this.book = book;
     }
-    @Column(name="comment")
+
     public String getComment() {
         return comment;
     }
 
     public void setComment(String comment) {
         this.comment = comment;
+    }
+
+    public Rating getRating() {
+        return rating;
+    }
+
+    public void setRating(Rating rating) {
+        this.rating = rating;
     }
 }
