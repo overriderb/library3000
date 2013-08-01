@@ -7,6 +7,8 @@ import com.library.domain.Comment;
 import com.library.domain.Library;
 import com.library.domain.Rating;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.stereotype.Component;
 
 /**
  * Created with IntelliJ IDEA.
@@ -15,13 +17,16 @@ import org.springframework.beans.factory.annotation.Autowired;
  * Time: 11:02
  * To change this template use File | Settings | File Templates.
  */
+@Component
 public class Main {
 
     @Autowired
     private LibraryDao libraryDao;
 
     public static void main(String args[]){
-        new Main().testFromMainForAndrey();
+        ClassPathXmlApplicationContext appContext = new ClassPathXmlApplicationContext();
+        Main main = appContext.getBean(Main.class);
+        main.testFromMainForAndrey();
     }
 
     //TODO: use for test - tests :)
