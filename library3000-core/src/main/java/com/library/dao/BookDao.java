@@ -1,7 +1,6 @@
 package com.library.dao;
 
 import com.library.domain.Book;
-import com.library.domain.Library;
 
 /**
  * Created with IntelliJ IDEA.

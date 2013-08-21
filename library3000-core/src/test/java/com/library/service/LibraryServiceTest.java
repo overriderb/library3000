@@ -13,15 +13,16 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  * @author Viktor_Khvostov
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration("/test-config.xml")
+@ContextConfiguration("classpath:test-config.xml")
 public class LibraryServiceTest {
 
     @Autowired
     LibraryService libraryService;
 
+//    @Ignore
     @Test
     @Rollback
     public void testGetLibrary() throws Exception {
-
+        libraryService.saveLibrary(null);
     }
 }

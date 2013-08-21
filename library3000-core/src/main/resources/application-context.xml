@@ -16,6 +16,12 @@
 
     <context:component-scan base-package="com.library"/>
 
+    <!--<bean id="main" class="com.library.Main">-->
+        <!--<property name="libraryDao" ref="libraryDao"/>-->
+    <!--</bean>-->
+
+    <!--<bean id="libraryDao" class="com.library.dao.impl.LibraryImpl"/>-->
+
     <!--<jdbc:embedded-database id="dataSource">
         <jdbc:script location="classpath:com/library/db/hsql/schema.sql" />
     </jdbc:embedded-database>-->

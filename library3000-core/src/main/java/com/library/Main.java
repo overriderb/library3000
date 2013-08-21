@@ -1,14 +1,11 @@
 package com.library;
 
-import com.library.dao.LibraryDao;
 import com.library.dao.impl.Factory;
 import com.library.domain.Book;
 import com.library.domain.Comment;
 import com.library.domain.Library;
 import com.library.domain.Rating;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.stereotype.Component;
 
 /**
  * Created with IntelliJ IDEA.
@@ -17,15 +14,11 @@ import org.springframework.stereotype.Component;
  * Time: 11:02
  * To change this template use File | Settings | File Templates.
  */
-@Component
 public class Main {
 
-    @Autowired
-    private LibraryDao libraryDao;
-
     public static void main(String args[]){
-        ClassPathXmlApplicationContext appContext = new ClassPathXmlApplicationContext();
-        Main main = appContext.getBean(Main.class);
+        ClassPathXmlApplicationContext appContext = new ClassPathXmlApplicationContext("classpath*:application-context.xml");
+        Main main = (Main) appContext.getBean("main");
         main.testFromMainForAndrey();
     }
 
