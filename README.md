@@ -1,4 +1,0 @@
-own-library
-===========
-
-Book library

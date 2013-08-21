@@ -13,10 +13,7 @@
         <!--<property name="hibernate.connection.autocommit">false</property>-->
         <!--<property name="current_session_context_class">thread</property>-->
 
-        <mapping class="com.library.domain.Library"/>
-        <mapping class="com.library.domain.Book"/>
-        <mapping class="com.library.domain.Comment"/>
-        <mapping class="com.library.domain.Rating"/>
+        <mapping package="com.library.domain"/>
 
     </session-factory>
 </hibernate-configuration>

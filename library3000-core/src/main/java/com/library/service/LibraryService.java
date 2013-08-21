@@ -1,25 +1,25 @@
 package com.library.service;
 
-import com.library.dao.LibraryDao;
+import com.library.dao.GenericDao;
 import com.library.domain.Library;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 /**
  * TODO: Add class description
  *
  * @author Viktor_Khvostov
  */
-@Service
 public class LibraryService {
 
-    @Autowired
-    private LibraryDao libraryDao;
+    private GenericDao<Library, Long> libraryDao;
 
     public LibraryService() {
     }
 
-    public void saveLibrary(Library library) {
-        libraryDao.addLibrary(library);
+    public Long saveLibrary(Library library) {
+        return libraryDao.create(library);
+    }
+
+    public void setLibraryDao(GenericDao<Library, Long> libraryDao) {
+        this.libraryDao = libraryDao;
     }
 }
