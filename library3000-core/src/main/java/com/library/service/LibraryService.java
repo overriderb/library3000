@@ -8,18 +8,9 @@ import com.library.domain.Library;
  *
  * @author Viktor_Khvostov
  */
-public class LibraryService {
+public class LibraryService extends AbstractGenericService<Library, Long> {
 
-    private GenericDao<Library, Long> libraryDao;
-
-    public LibraryService() {
-    }
-
-    public Long saveLibrary(Library library) {
-        return libraryDao.create(library);
-    }
-
-    public void setLibraryDao(GenericDao<Library, Long> libraryDao) {
-        this.libraryDao = libraryDao;
+    protected LibraryService(GenericDao<Library, Long> libraryLongGenericDao) {
+        super(libraryLongGenericDao);
     }
 }

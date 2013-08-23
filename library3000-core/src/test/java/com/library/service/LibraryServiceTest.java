@@ -44,6 +44,6 @@ public class LibraryServiceTest {
         lib1.addBook(book1);
         lib1.addBook(book2);
 
-        libraryService.saveLibrary(lib1);
+        libraryService.save(lib1);
     }
 }

@@ -5,6 +5,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * TODO: Add class description
@@ -29,7 +30,7 @@ public class GenericDaoImpl<T, PK extends Serializable> implements GenericDao<T,
 
     @Override
     public T read(PK id) {
-        return (T) getSession().get(type, id);
+        return (T) getSession().load(type, id);
     }
 
     @Override
@@ -40,6 +41,11 @@ public class GenericDaoImpl<T, PK extends Serializable> implements GenericDao<T,
     @Override
     public void delete(T persistentObject) {
         getSession().delete(persistentObject);
+    }
+
+    @Override
+    public List<T> readAll() {
+        return getSession().createCriteria(type).list();
     }
 
     private Session getSession(){

@@ -39,7 +39,7 @@
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
 
-    <bean id="CommentDao" class="com.library.dao.impl.GenericDaoImpl">
+    <bean id="commentDao" class="com.library.dao.impl.GenericDaoImpl">
         <constructor-arg value="com.library.domain.Comment"/>
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
@@ -47,7 +47,15 @@
     <!--Services-->
 
     <bean id="libraryService" class="com.library.service.LibraryService">
-        <property name="libraryDao" ref="libraryDao"/>
+        <constructor-arg ref="libraryDao"/>
+    </bean>
+
+    <bean id="bookService" class="com.library.service.BookService">
+        <constructor-arg ref="bookDao"/>
+    </bean>
+
+    <bean id="commentService" class="com.library.service.CommentService">
+        <constructor-arg ref="commentDao"/>
     </bean>
 
 </beans>

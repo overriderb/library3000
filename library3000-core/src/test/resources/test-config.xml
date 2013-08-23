@@ -34,7 +34,7 @@
     </bean>
 
     <bean id="libraryService" class="com.library.service.LibraryService">
-        <property name="libraryDao" ref="libraryDao"/>
+        <constructor-arg ref="libraryDao"/>
     </bean>
 
 </beans>

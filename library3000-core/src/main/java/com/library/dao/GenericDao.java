@@ -1,6 +1,7 @@
 package com.library.dao;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * TODO: Add class description
@@ -40,4 +41,11 @@ public interface GenericDao <T, PK extends Serializable> {
      * @param persistentObject object
      */
     void delete(T persistentObject);
+
+    /**
+     * Retrieve all object certain type
+     *
+     * @return all object from table
+     */
+    List<T> readAll();
 }
