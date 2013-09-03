@@ -4,16 +4,18 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>own-library</groupId>
-    <artifactId>own-library</artifactId>
+    <groupId>library3000</groupId>
+    <artifactId>library3000</artifactId>
     <packaging>pom</packaging>
-    <version>1.0-SNAPSHOT</version>
+    <version>${library3000.version}</version>
     <modules>
         <module>library3000-ui</module>
         <module>library3000-core</module>
+        <module>library3000-integration-test</module>
     </modules>
 
     <properties>
+        <library3000.version>1.0-SNAPSHOT</library3000.version>
         <junit.version>4.10</junit.version>
         <springframwork.version>3.2.3.RELEASE</springframwork.version>
         <log4j.version>1.2.17</log4j.version>
