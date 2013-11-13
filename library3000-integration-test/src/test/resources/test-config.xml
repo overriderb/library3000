@@ -9,12 +9,14 @@
 
     <context:annotation-config />
 
+    <context:property-placeholder location="test-config.properties" />
+
     <bean id="dataSource"
           class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql://localhost:3306/library3000"/>
-        <property name="username" value="user"/>
-        <property name="password" value="3333"/>
+        <property name="driverClassName" value="${db.driver}" />
+        <property name="url" value="${db.url}" />
+        <property name="username" value="${db.user}" />
+        <property name="password" value="${db.password}" />
     </bean>
 
     <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
@@ -22,7 +24,7 @@
         <property name="packagesToScan" value="com.library.domain" />
         <property name="hibernateProperties">
             <props>
-                <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+                <prop key="hibernate.dialect">${db.dialect}</prop>
                 <prop key="hibernate.show_sql">true</prop>
             </props>
         </property>
