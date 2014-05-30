@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html ng-app="library3000App">
+    <head>
+        <title>Library3000</title>
+
+        <link href="styles/ng-grid.css" type="text/css"  rel="stylesheet">
+        <link href="styles/library3000.css" type="text/css"  rel="stylesheet">
+
+        <script type="text/javascript" src="scripts/jquery/jquery-2.0.3.js"></script>
+        <script type="text/javascript" src="scripts/angularjs/angular.js"></script>
+        <script type="text/javascript" src="scripts/angularjs/ng-grid/ng-grid-2.0.11.debug.js"></script>
+        <script type="text/javascript" src="scripts/client.js"></script>
+        <script type="text/javascript" src="scripts/grid.js"></script>
+    </head>
+    <body>
+
+        <div id="clickArea">Open Logo!</div>
+        <div id="logo">
+            <img id="logo_img" src="images/logo-library3000-small.png">
+        </div>
+        <p>
+        <!--<div id="space-invader"></div>-->
+
+        <div ng-controller="LibraryGrid">
+            <div class="libraryGrid" ng-grid="gridOptions"></div>
+        </div>
+
+    </body>
+</html>
