@@ -4,8 +4,8 @@ import com.library.dao.GenericDao;
 import com.library.domain.Library;
 
 /**
- * TODO: Add class description
- *
+ * Implementation of library service
+ * <p/>
  * @author Viktor_Khvostov
  */
 public class LibraryService extends AbstractGenericService<Library, Long> {

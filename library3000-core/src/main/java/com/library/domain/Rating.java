@@ -14,8 +14,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * TODO: Add class description
- *
+ * Rating entity
+ * <p/>
  * @author Viktor_Khvostov
  */
 @Entity

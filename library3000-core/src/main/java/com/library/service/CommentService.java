@@ -4,7 +4,7 @@ import com.library.dao.GenericDao;
 import com.library.domain.Comment;
 
 /**
- * TODO: Add class description
+ * Implementation of comment service
  * <p/>
  * User: override
  * Date: 23.08.13

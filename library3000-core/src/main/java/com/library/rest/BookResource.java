@@ -14,7 +14,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 /**
- * TODO: Add class description
+ * Implementation of book REST resource
  */
 @Component
 @Path("/books")

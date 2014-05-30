@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * TODO: Add class description
+ * Interface of generic DAO class for simple crud operations
  * <p/>
  * User: override
  * Date: 21.08.13

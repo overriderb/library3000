@@ -17,8 +17,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * TODO: Add class description
- *
+ * Book entity
+ * <p/>
  * @author Viktor_Khvostov
  */
 @Entity

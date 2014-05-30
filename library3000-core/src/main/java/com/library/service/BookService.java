@@ -4,7 +4,7 @@ import com.library.dao.GenericDao;
 import com.library.domain.Book;
 
 /**
- * TODO: Add class description
+ * Implementation of book service
  * <p/>
  * User: override
  * Date: 22.08.13

@@ -14,8 +14,8 @@ import java.io.Serializable;
 
 
 /**
- * TODO: Add class description
- *
+ * Comment entity
+ * <p/>
  * @author Viktor_Khvostov
  */
 @Entity

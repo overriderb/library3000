@@ -7,7 +7,7 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * TODO: Add class description
+ * Implementation of generic service for simple crud operations
  * <p/>
  * User: override
  * Date: 22.08.13
