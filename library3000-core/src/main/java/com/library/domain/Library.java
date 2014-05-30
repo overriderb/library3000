@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -19,7 +20,7 @@ import java.util.Set;
  */
 @Entity
 @Table(name = "library")
-public class Library {
+public class Library implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
