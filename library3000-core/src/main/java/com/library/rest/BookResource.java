@@ -25,7 +25,7 @@ public class BookResource {
     private BookService bookService;
 
     @GET
-    @Path("/")
+    @Path("/{id}")
     public Response getBook(@PathParam("id") Long bookId) {
         Response.ResponseBuilder responseBuilder = new ResponseBuilderImpl();
 

@@ -25,7 +25,7 @@ public class LibraryResource {
     private LibraryService libraryService;
 
     @GET
-    @Path("/")
+    @Path("/{id}")
     public Response getLibrary(@PathParam("id") Long libraryId) {
         Response.ResponseBuilder responseBuilder = new ResponseBuilderImpl();
 
