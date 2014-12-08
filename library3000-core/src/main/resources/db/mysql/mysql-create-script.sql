@@ -1,6 +1,6 @@
 delimiter $$
 
-CREATE DATABASE `library3` /*!40100 DEFAULT CHARACTER SET utf8 */$$
+CREATE DATABASE `library3000` /*!40100 DEFAULT CHARACTER SET utf8 */$$
 
 CREATE TABLE `rating` (
   `ratingId` int(11) NOT NULL AUTO_INCREMENT,

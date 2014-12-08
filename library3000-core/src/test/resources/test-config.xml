@@ -13,8 +13,8 @@
           class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
         <property name="url" value="jdbc:mysql://localhost:3306/library3000"/>
-        <property name="username" value="user"/>
-        <property name="password" value="3333"/>
+        <property name="username" value="root"/>
+        <property name="password" value="password"/>
     </bean>
 
     <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
@@ -35,6 +35,10 @@
 
     <bean id="libraryService" class="com.library.service.LibraryService">
         <constructor-arg ref="libraryDao"/>
+    </bean>
+
+    <bean id="library" class="com.library.domain.Library">
+        <property name="name" value="TestLibrary"></property>
     </bean>
 
 </beans>

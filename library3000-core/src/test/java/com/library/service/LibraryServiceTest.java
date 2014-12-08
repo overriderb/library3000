@@ -1,5 +1,6 @@
 package com.library.service;
 
+import com.library.domain.Library;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -19,10 +20,16 @@ public class LibraryServiceTest {
     @Autowired
     LibraryService libraryService;
 
+    @Autowired
+    Library library;
+
     // TODO: Make not! fake test
-    @Ignore
+    //@Ignore
     @Test
 //    @Rollback
     public void testSaveLibrary() throws Exception {
+        //libraryService.save(library);
+        library.setLibraryId(new Long(2));
+        libraryService.delete(library);
     }
 }
